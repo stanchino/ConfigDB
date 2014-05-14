@@ -1,0 +1,12 @@
+language: ruby
+rvm: 2.1.0
+deploy:
+  provider: heroku
+  app: configdb-dev
+  on:
+    repo: stanchino/ConfigDB
+    branch: development
+  api_key:
+    secure: A6Y10gykNq2yAmqEyQnzjylulB8hU1Esnx3aKctYp2pV1yseXbSh7EpuejA2tEAfK7V34NMdwKKYSqYvzwymJCi8gUo5HwIxdJuy6HdyrBdNljfOr/fGuhuk8PkaoHOuEix47jtca8gd0Tg2ROFQy511cnFQA0soJ0o+mnv8Ndw=
+  run: "rake db:migrate"
+  strategy: git
