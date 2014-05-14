@@ -63,3 +63,5 @@ gem 'puma'
 gem 'slim-rails'
 
 gem 'rails_12factor'
+
+gem "codeclimate-test-reporter", group: :test, require: nil

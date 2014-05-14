@@ -7,6 +7,13 @@
 # Ignore bundler config.
 /.bundle
 
+# Database configuration
+/config/database.yml
+/config/local_env.yml
+
+# Exclude code coverage reports
+/coverage
+
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal

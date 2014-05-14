@@ -10,3 +10,6 @@ deploy:
     secure: RxopYr4I6SCxLK6eMnTnxmP+mHAGrC1e6eMAUGxchCpuCUAI4Xay/e93smJswaoK2+v5llq6UBIHWGDfr21DwGT/XqKx+WcMtJFmDusdRBVgihkVgWzcwiI7InA9/XUriB0nnedABRMSaQTV7/Q0f7okOEI7qME43MeskUqR/TY=
   run: "rake db:migrate"
   strategy: git
+addons:
+  code_climate:
+    repo_token: a1050d2800de178a7c5dd367f4fbbf29c1ec5597842f912582a0599cd24ea644
