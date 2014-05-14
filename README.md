@@ -14,7 +14,7 @@ Useful tools
 * [iTerm](http://www.iterm2.com/#/section/home)
 * [Postgres](http://www.enterprisedb.com/products-services-training/pgdownload#osx)
 
-NOTE: Before you get started make sure you have the *latest [Xcode](https://developer.apple.com/xcode/) with command line tool installed*
+NOTE: Before you get started make sure you have the **latest [Xcode](https://developer.apple.com/xcode/) with command line tool installed**
 
 
 Project Set Up
@@ -25,23 +25,26 @@ ConfigDB is a [Ruby on Rails](http://rubyonrails.org/) application that uses the
 The project includes a [.ruby-version](.ruby-version) and [.ruby-gemset](.ruby-gemset) files that will automatically load the current version for you if you are using [RVM](https://rvm.io/).
 
 1. To clone the code from the lastest GitHub commit run:
-```
-git clone git@github.com:stanchino/ConfigDb.git ConfigDB
-```
+  
+   ```
+   git clone git@github.com:stanchino/ConfigDb.git ConfigDB
+   ```
 2. Install all the gems the project uses (this might take a few minutes):
-```
-bundle install
-```
+
+   ```
+   bundle install
+   ```
 3. Create your own database configuration file:
-```
-cp config/database.sample.yml config/database.yml
-```
-4. After the database configuration is set create the development and
-   test databases:
-```
-rake db:create db:migrate db:test:load db:test:prepare
-```
+   ```
+   cp config/database.sample.yml config/database.yml
+   ```
+4. After the database configuration is set create the development and test databases:
+
+   ```
+   rake db:create db:migrate db:test:load db:test:prepare
+   ```
 5. In order to populate the database with sample data run:
-```
-rake db:seed
-```
+
+   ```
+   rake db:seed
+   ```
