@@ -3,6 +3,8 @@ Contributing
 The ConfigDB project is OpenSource. Everyone that wants to get involved
 is welcome and can feel free to reuse all the compoments available here.
 
+[![Code Climate](https://codeclimate.com/github/stanchino/ConfigDB.png)](https://codeclimate.com/github/stanchino/ConfigDB)
+
 Useful tools
 ============
 
