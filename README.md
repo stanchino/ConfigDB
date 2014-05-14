@@ -35,6 +35,7 @@ The project includes a [.ruby-version](.ruby-version) and [.ruby-gemset](.ruby-g
    bundle install
    ```
 3. Create your own database configuration file:
+
    ```
    cp config/database.sample.yml config/database.yml
    ```
