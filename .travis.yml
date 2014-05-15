@@ -20,4 +20,4 @@ env:
   - "NUM_GROUPS=5 GROUP=4"
   - "NUM_GROUPS=5 GROUP=5"
 script:
-  - bundle exec parallel_tests spec/ -n $NUM_GROUPS --only-group $GROUP --group-by filesize --type rspec
+  - bundle exec rake parallel:spec -n $NUM_GROUPS --only-group $GROUP --group-by filesize --type rspec
