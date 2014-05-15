@@ -16,5 +16,7 @@ addons:
 env:
   - "NUM_GROUPS=2 GROUP=1"
   - "NUM_GROUPS=2 GROUP=2"
+before_script:
+  - bundle exec rake parallel:drop parallel:create parallel:prepare
 script:
   - bundle exec parallel_test spec/ -n $NUM_GROUPS --only-group $GROUP --group-by filesize --type rspec
