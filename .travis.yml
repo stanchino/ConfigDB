@@ -13,3 +13,8 @@ deploy:
 addons:
   code_climate:
     repo_token: a1050d2800de178a7c5dd367f4fbbf29c1ec5597842f912582a0599cd24ea644
+env:
+  - "NUM_GROUPS=2 GROUP=1"
+  - "NUM_GROUPS=2 GROUP=2"
+script:
+  - bundle exec parallel_test spec/ -n $NUM_GROUPS --only-group $GROUP --group-by filesize --type rspec
