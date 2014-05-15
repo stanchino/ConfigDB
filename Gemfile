@@ -44,6 +44,8 @@ gem 'shoulda-matchers', group: [:development, :test]
 
 gem 'simplecov', :require => false, :group => :test
 
+gem 'parallel_tests', group: [:development, :test]
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -65,3 +67,12 @@ gem 'slim-rails'
 gem 'rails_12factor'
 
 gem "codeclimate-test-reporter", group: :test, require: nil
+
+# Devise
+gem 'devise'
+
+# Use SimpleForm
+gem 'simple_form'
+
+# cancan authorization
+gem 'cancan'
