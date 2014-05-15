@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: configdb_production
-  username: prodUser
+  password: <%= ENV['CONFIGDB_DATABASE_USERNAME'] %>
   password: <%= ENV['CONFIGDB_DATABASE_PASSWORD'] %>

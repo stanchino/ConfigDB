@@ -8,7 +8,6 @@
 /.bundle
 
 # Database configuration
-/config/database.yml
 /config/local_env.yml
 
 # Exclude code coverage reports
