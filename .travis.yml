@@ -14,8 +14,7 @@ addons:
   code_climate:
     repo_token: a1050d2800de178a7c5dd367f4fbbf29c1ec5597842f912582a0599cd24ea644
 env:
-  - "NUM_GROUPS=2 GROUP=1"
-  - "NUM_GROUPS=2 GROUP=2"
+  - "NUM_GROUPS=1 GROUP=1"
 before_script:
   - bundle exec rake parallel:drop parallel:create db:migrate parallel:prepare
 script:
