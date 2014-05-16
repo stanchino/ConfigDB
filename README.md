@@ -3,11 +3,11 @@ Contributing
 The ConfigDB project is OpenSource. Everyone that wants to get involved
 is welcome and can feel free to reuse all the compoments available here.
 
-[![Code Climate](https://codeclimate.com/github/stanchino/ConfigDB.png)](https://codeclimate.com/github/stanchino/ConfigDB)
+[![Code Climate](https://codeclimate.com/github/stanchino/ConfigDB.png)](https://codeclimate.com/github/stanchino/ConfigDB) [![Coverage](https://codeclimate.com/github/stanchino/ConfigDB/coverage.png)](https://codeclimate.com/github/stanchino/ConfigDB)
 
-## Useful tools
+### Useful tools
 
-### Mac users
+#### Mac users
 
 * [Hombrew](http://mxcl.github.com/homebrew/)
 * [RVM](https://rvm.io/)
@@ -18,7 +18,7 @@ is welcome and can feel free to reuse all the compoments available here.
 NOTE: Before you get started make sure you have the **latest [Xcode](https://developer.apple.com/xcode/) with command line tool installed**
 
 
-## Project Set Up
+### Project Set Up
 
 ConfigDB is a [Ruby on Rails](http://rubyonrails.org/) application that uses the latest [Ruby](https://www.ruby-lang.org/en/) version.
 
@@ -50,11 +50,11 @@ The project includes a [.ruby-version](.ruby-version) and [.ruby-gemset](.ruby-g
    rake db:seed
    ```
 
-## Running the App
+### Running the App
 
-The default application server that is configured is [Puma](http://puma.io/). There is also a [Procfile](https://devcenter.heroku.com/articles/procfile) you can use to deploy to [Heroku](https://www.heroku.com/).
+The default application server that is configured is [Puma](http://puma.io/). There is also a [Procfile](https://devcenter.heroku.com/articles/procfile) you can use to deploy to [Heroku](https://www.heroku.com/). The recommended way to run the application is using [Foreman](https://github.com/ddollar/foreman):
 ```
-bundle exec puma -C config/puma.rb
+foreman start
 ```
 
 Libraries
@@ -70,13 +70,13 @@ The [slim](http://slim-lang.com/) library is an indentation based templating eng
 [Simple Form](https://github.com/plataformatec/simple_form) is one abstraction on top of normal rails forms that add some intelligent defaults and customization options that Rails lack. It's also Twitter Bootstrap friendly.
 
 ### Capybara
-For our integration tests we use [Capybara](https://github.com/jnicklas/capybara). We considered that Capybara is the thinest layer we can have to reproduce very top level user like interactions. In contrast the alternative tool, Cucumber, adds too much effort and unneeded cost of maintanance when writing features that can be written in a very similar way in plain ruby with Capybara.
-
-### Backbone.js
-[Backbone](http://backbonejs.org/) adds a minimal but useful structure to javascript that lets developers separate view from model related code. It also provides automatic ajax call generation by leveraging the REST actions rails provides and a very clean event model.
+Integration tests are implemented using [Capybara](https://github.com/jnicklas/capybara). Capybara is the thinest layer you can have to reproduce very top level user like interactions. In contrast the alternative tool, Cucumber, adds too much effort and unneeded cost of maintanance when writing features that can be written in a very similar way in plain ruby with Capybara.
 
 ### Foreman
-The application is currently deployed on [Heroku](http://www.heroku.com) which internally runs `foreman` to read the root's `Procfile` to setup the server and any possible satellite machine we may need (for example workers for background processing). So to keep the local server behavior as closer as we can to the way `heroku` works, it's recommended to run the server through `foreman start` instead of `rails server`. Foreman also has the ability to load `.env` files from your local setup which let's you set global `ENV` variables without needing to polute your local machine with them.
+The application is currently deployed on [Heroku](http://www.heroku.com) which internally runs `foreman` to read the `Procfile` to setup the server and any possible satellite machines that might be needed (for example workers for background processing). So to keep the local server behavior as close to the way `heroku` works, it's recommended to run the server through `foreman start` instead of `rails server`. [Foreman](https://github.com/ddollar/foreman) also has the ability to load `.env` files from your local setup which let's you set global `ENV` variables without needing to polute your local machine with them.
 
-### JST and EJS
-[JST](https://github.com/sstephenson/sprockets#javascript-templating-with-ejs-and-eco) is the rails assets pipeline way of dealing with javascripts view templates. It's easier to test and integrate with `Konacha` as it doesn't require a dom element to store the templates.
+### Devise
+User management is handled using [Devise](http://devise.plataformatec.com.br/) - a flexible authentication solution for [Rails](http://rubyonrails.org/) based on the [Warden](https://github.com/hassox/warden) authentication framework.
+
+### CanCan
+Resource access is built on top of [CanCan](https://github.com/ryanb/cancan) authorization and permissions management.

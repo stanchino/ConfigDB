@@ -1,0 +1,15 @@
+.navbar.navbar-inverse.navbar-fixed-top role="navigation"
+  .container-fluid
+    .navbar-header
+      button.navbar-toggle data-toggle="collapse" data-target=".navbar-collapse"
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      = link_to 'ConfigDB', root_url, class: ['navbar-brand']
+    .navbar-collapse.collapse
+      ul.nav.navbar-nav.navbar-right
+        li = link_to "Dashboard", root_url
+        li = link_to "Settings", "#"
+        li = link_to "Profile", "#"
+        li = link_to "Help", "#"
