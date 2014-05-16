@@ -30,6 +30,12 @@ describe UsersController do
   # UsersController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
+  let(:user) { stub_model(User, FactoryGirl.attributes_for(:user)) }
+
+  before do
+    allow(subject).to receive(:current_user) { user }
+  end
+
   describe "GET index" do
     it "assigns all users as @users" do
       user = User.create! valid_attributes

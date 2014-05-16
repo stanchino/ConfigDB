@@ -78,5 +78,5 @@ The application is currently deployed on [Heroku](http://www.heroku.com) which i
 ### Devise
 User management is handled using [Devise](http://devise.plataformatec.com.br/) - a flexible authentication solution for [Rails](http://rubyonrails.org/) based on the [Warden](https://github.com/hassox/warden) authentication framework.
 
-### CanCan
-Resource access is built on top of [CanCan](https://github.com/ryanb/cancan) authorization and permissions management.
+### CanCanCan
+Resource access is built on top of [CanCanCan](https://github.com/CanCanCommunity/cancancan) authorization and permissions management.

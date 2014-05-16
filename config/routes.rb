@@ -1,6 +1,24 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root to: 'users#index'
+  devise_for :users, skip: [:sessions, :registrations]
+  as :user do
+    get 'login' => 'devise/sessions#new', :as => :new_user_session
+    get 'register' => 'devise/registrations#new', :as => :new_user_registration
+    post 'login' => 'devise/sessions#create', :as => :user_session
+    post 'registar' => 'devise/registrations#create', :as => :user_registration
+    delete 'logout' => 'devise/sessions#destroy', :as => :destroy_user_session
+  end
+
+  authenticated :user do
+    devise_scope :user do
+      root to: 'users#index', as: 'authenticated_root'
+    end
+  end
+
+  unauthenticated do
+    devise_scope :user do
+      root to: "devise/sessions#new", :as => "unauthenticated_root"
+    end
+  end
 
   resources :users
 

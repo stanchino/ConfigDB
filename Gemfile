@@ -14,7 +14,7 @@ gem 'font-awesome-rails'
 gem 'simple_form'
 gem 'country_select'
 gem 'devise'
-gem 'cancan'
+gem 'cancancan'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
