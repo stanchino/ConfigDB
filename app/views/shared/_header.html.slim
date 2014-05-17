@@ -22,3 +22,9 @@
               li = link_to "Settings", "#"
               li = link_to "Profile", "#"
               li = link_to "Log out", destroy_user_session_url, method: :delete
+        - else
+          - if devise_controller?
+            - if controller_name != 'sessions'
+              li = link_to "Login", new_session_url(resource_name)
+            - if devise_mapping.registerable? && controller_name != 'registrations'
+              li = link_to "Register", new_registration_url(resource_name)

@@ -17,7 +17,7 @@ html lang="en"
     = render partial: 'shared/header'
     .container-fluid
       .row
-        .col-sm-12.main
+        .col-md-6.col-md-offset-3.col-sm-12.main
           = content_for?(:content) ? yield(:content) : yield
     = render partial: 'shared/footer'
     = javascript_include_tag "application"

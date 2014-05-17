@@ -1,11 +1,19 @@
-h2
-  | Sign up
-= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = f.error_notification
-  .form-inputs
-    = f.input :email, required: true, autofocus: true
-    = f.input :password, required: true
-    = f.input :password_confirmation, required: true
-  .form-actions
-    = f.button :submit, "Sign up"
-= render "users/shared/links"
+.panel.panel-default
+  .panel-body
+    h1.margin-base-vertical Register
+    hr
+    = no_autocomplete_simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = f.error_notification
+      .form-inputs
+        .row
+          = prepend_input f, :first_name, 'fa-user', { required: true, autofocus: true, wrapper_html: { class: 'col-lg-12' } }
+        .row
+          = prepend_input f, :last_name, 'fa-user', { required: true, wrapper_html: { class: 'col-lg-12' } }
+        .row
+          = prepend_input f, :email, 'fa-envelope', { required: true, wrapper_html: { class: 'col-lg-12' } }
+        .row
+          = prepend_input f, :password, 'fa-key', { required: true, wrapper_html: { class: 'col-lg-12' } }
+        .row
+          = prepend_input f, :password_confirmation, 'fa-key', { required: true, wrapper_html: { class: 'col-lg-12' } }
+      .form-actions
+        = f.submit "Register", class: 'btn btn-success btn-lg'

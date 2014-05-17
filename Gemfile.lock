@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/plataformatec/simple_form.git
+  revision: 9196efd2562573aa08037034051fc8c924083e10
+  branch: master
+  specs:
+    simple_form (3.1.0.rc1)
+      actionpack (~> 4.0)
+      activemodel (~> 4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -138,9 +147,6 @@ GEM
       rdoc (~> 4.0, < 5.0)
     shoulda-matchers (2.6.1)
       activesupport (>= 3.0.0)
-    simple_form (3.0.2)
-      actionpack (~> 4.0)
-      activemodel (~> 4.0)
     simplecov (0.8.2)
       docile (~> 1.1.0)
       multi_json
@@ -205,7 +211,7 @@ DEPENDENCIES
   sass-rails
   sdoc (~> 0.4.0)
   shoulda-matchers
-  simple_form
+  simple_form!
   simplecov
   slim-rails
   spring
