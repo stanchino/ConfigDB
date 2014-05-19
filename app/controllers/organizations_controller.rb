@@ -1,4 +1,5 @@
 class OrganizationsController < ApplicationController
+  include Response
   before_action :set_organization, only: [:show, :edit, :update, :destroy]
 
   # GET /organizations
@@ -28,11 +29,9 @@ class OrganizationsController < ApplicationController
 
     respond_to do |format|
       if @organization.save
-        format.html { redirect_to @organization, notice: 'Organization was successfully created.' }
-        format.json { render :show, status: :created, location: @organization }
+        render_success format, @organization, 'Organization was successfully created.'
       else
-        format.html { render :new }
-        format.json { render json: @organization.errors, status: :unprocessable_entity }
+        render_error format, @organization, :new
       end
     end
   end
@@ -42,11 +41,9 @@ class OrganizationsController < ApplicationController
   def update
     respond_to do |format|
       if @organization.update(organization_params)
-        format.html { redirect_to @organization, notice: 'Organization was successfully updated.' }
-        format.json { render :show, status: :ok, location: @organization }
+        render_success format, @organization, 'Organization was successfully updated.'
       else
-        format.html { render :edit }
-        format.json { render json: @organization.errors, status: :unprocessable_entity }
+        render_error format, @organization, :edit
       end
     end
   end
@@ -56,8 +53,7 @@ class OrganizationsController < ApplicationController
   def destroy
     @organization.destroy
     respond_to do |format|
-      format.html { redirect_to organizations_url, notice: 'Organization was successfully destroyed.' }
-      format.json { head :no_content }
+      render_no_content format, organizations_url, 'Organization was successfully destroyed.'
     end
   end
 

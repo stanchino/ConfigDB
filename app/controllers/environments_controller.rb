@@ -1,6 +1,8 @@
 class EnvironmentsController < ApplicationController
   load_and_authorize_resource
 
+  include Response
+
   before_action :get_organization
   before_action :set_environments
   before_action :set_environment, only: [:show, :edit, :update, :destroy]
@@ -32,11 +34,9 @@ class EnvironmentsController < ApplicationController
 
     respond_to do |format|
       if @environment.save
-        format.html { redirect_to [@organization, @environment], notice: 'Environment was successfully created.' }
-        format.json { render :show, status: :created, location: [@organization, @environment] }
+        render_success format, [@organization, @environment], 'Environment was successfully created.'
       else
-        format.html { render :new }
-        format.json { render json: @environment.errors, status: :unprocessable_entity }
+        render_error format, @environment, :new
       end
     end
   end
@@ -46,11 +46,9 @@ class EnvironmentsController < ApplicationController
   def update
     respond_to do |format|
       if @environment.update(environment_params)
-        format.html { redirect_to [@organization, @environment], notice: 'Environment was successfully updated.' }
-        format.json { render :show, status: :ok, location: [@organization, @environment] }
+        render_success format, [@organization, @environment], 'Environment was successfully updated.'
       else
-        format.html { render :edit }
-        format.json { render json: @environment.errors, status: :unprocessable_entity }
+        render_error format, @environment, :edit
       end
     end
   end
@@ -60,8 +58,7 @@ class EnvironmentsController < ApplicationController
   def destroy
     @environment.destroy
     respond_to do |format|
-      format.html { redirect_to organization_environments_url(@organization), notice: 'Environment was successfully destroyed.' }
-      format.json { head :no_content }
+      render_no_content format, organization_environments_url(@organization), 'Environment was successfully destroyed.'
     end
   end
 

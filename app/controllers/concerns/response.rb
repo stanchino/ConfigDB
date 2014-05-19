@@ -10,4 +10,9 @@ module Response
     format.html { render action }
     format.json { render json: model.errors, status: :unprocessable_entity }
   end
+
+  def render_no_content(format, url, message)
+    format.html { redirect_to url, notice: message }
+    format.json { head :no_content }
+  end
 end
