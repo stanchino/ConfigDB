@@ -1,0 +1,25 @@
+h1 Listing environments
+
+table
+  thead
+    tr
+      th Organization
+      th Name
+      th Textkey
+      th
+      th
+      th
+
+  tbody
+    - @environments.each do |environment|
+      tr
+        td = @organization.name
+        td = environment.name
+        td = environment.textkey
+        td = link_to 'Show', [@organization, environment]
+        td = link_to 'Edit', edit_organization_environment_path(@organization, environment)
+        td = link_to 'Destroy', [@organization, environment], data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Environment', new_organization_environment_path(@organization)

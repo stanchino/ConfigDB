@@ -2,7 +2,9 @@ require 'spec_helper'
 
 describe UsersController do
 
-  let(:valid_attributes) { { "first_name" => "Test", "last_name" => "User", "email" => "john@doe.com", "password" => "asdfasdf" } }
+  let(:organization) { FactoryGirl.create(:organization) }
+
+  let(:valid_attributes) { { "first_name" => "Test", "last_name" => "User", "email" => "john@doe.com", "password" => "asdfasdf", "organization_id" => organization.to_param } }
 
   let(:valid_session) { {} }
 
