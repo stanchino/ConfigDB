@@ -22,7 +22,9 @@ describe EnvironmentsController do
 
   let(:organization) { FactoryGirl.create(:organization) }
 
-  let(:user) { stub_model(User, FactoryGirl.attributes_for(:user, organization_id: organization.to_param)) }
+  let(:super_admin) { FactoryGirl.create(:role, name: :super_admin) }
+
+  let(:user) { stub_model(User, FactoryGirl.attributes_for(:user, roles: [super_admin], organization_id: organization.to_param)) }
 
   before do
     allow(subject).to receive(:current_user) { user }

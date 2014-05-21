@@ -15,6 +15,7 @@ gem 'simple_form', github: 'plataformatec/simple_form', branch: 'master'
 gem 'country_select'
 gem 'devise'
 gem 'cancancan'
+gem 'rolify'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -44,6 +45,9 @@ gem "codeclimate-test-reporter", group: :test, require: nil
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# Foreman
+gem 'foreman'
 
 # Use Puma as the app server
 gem 'puma'

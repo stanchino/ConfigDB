@@ -4,11 +4,15 @@ describe UsersController do
 
   let(:organization) { FactoryGirl.create(:organization) }
 
+  let(:super_admin) { FactoryGirl.create(:role, name: :super_admin) }
+
   let(:valid_attributes) { { "first_name" => "Test", "last_name" => "User", "email" => "john@doe.com", "password" => "asdfasdf", "organization_id" => organization.to_param } }
+
+  let(:valid_attributes_for_admin) { valid_attributes.merge(roles: [stub_model(Role, name: :admin)]) }
 
   let(:valid_session) { {} }
 
-  let(:user) { stub_model(User, FactoryGirl.attributes_for(:user)) }
+  let(:user) { stub_model(User, FactoryGirl.attributes_for(:user, roles: [super_admin])) }
 
   before do
     allow(subject).to receive(:current_user) { user }
@@ -57,6 +61,11 @@ describe UsersController do
         post :create, {:user => valid_attributes}, valid_session
         assigns(:user).should be_a(User)
         assigns(:user).should be_persisted
+      end
+
+      it "newly created user has the correct role" do
+        post :create, {:user => valid_attributes}, valid_session
+        assigns(:user).should have_role(:user)
       end
 
       it "redirects to the created user" do

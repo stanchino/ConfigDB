@@ -1,7 +1,8 @@
 require 'spec_helper'
+require 'integration_test'
 
 describe "Environments" do
-  let (:organization) { FactoryGirl.create(:organization) }
+  login_new_user(:super_admin)
 
   describe "GET /organizations/{organization_id}/environments" do
     it "list environments" do
