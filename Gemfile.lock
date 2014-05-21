@@ -42,6 +42,7 @@ GEM
       sass (~> 3.2)
     builder (3.2.2)
     cancancan (1.8.0)
+    coco (0.10.0)
     codeclimate-test-reporter (0.3.0)
       simplecov (>= 0.7.1, < 1.0.0)
     coffee-rails (4.0.1)
@@ -198,6 +199,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass
   cancancan
+  coco
   codeclimate-test-reporter
   coffee-rails
   country_select

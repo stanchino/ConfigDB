@@ -6,5 +6,14 @@ FactoryGirl.define do
     last_name "MyString"
     email "john@doe.com"
     password "MyString"
+    organization
+
+    factory :super_admin do
+      after(:build) { |user| user.add_role(:super_admin) }
+    end
+
+    factory :regular_user do
+      after(:build) { |user| user.add_role(:user) }
+    end
   end
 end

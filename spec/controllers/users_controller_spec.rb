@@ -2,21 +2,19 @@ require 'spec_helper'
 
 describe UsersController do
 
-  let(:organization) { FactoryGirl.create(:organization) }
+  let(:user) { FactoryGirl.build(:super_admin) }
 
-  let(:super_admin) { FactoryGirl.create(:role, name: :super_admin) }
+  let(:organization) { user.organization }
+
+  before do
+    allow(subject).to receive(:current_user) { user }
+  end
 
   let(:valid_attributes) { { "first_name" => "Test", "last_name" => "User", "email" => "john@doe.com", "password" => "asdfasdf", "organization_id" => organization.to_param } }
 
   let(:valid_attributes_for_admin) { valid_attributes.merge(roles: [stub_model(Role, name: :admin)]) }
 
   let(:valid_session) { {} }
-
-  let(:user) { stub_model(User, FactoryGirl.attributes_for(:user, roles: [super_admin])) }
-
-  before do
-    allow(subject).to receive(:current_user) { user }
-  end
 
   describe "GET index" do
     it "assigns all users as @users" do

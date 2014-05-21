@@ -38,7 +38,8 @@ gem 'rspec-rails', group: [:development, :test]
 gem 'shoulda-matchers', group: [:development, :test]
 gem 'simplecov', :require => false, :group => :test
 gem 'parallel_tests', group: [:development, :test]
-gem "codeclimate-test-reporter", group: :test, require: nil
+gem 'codeclimate-test-reporter', group: :test, require: nil
+gem 'coco', group: [:development, :test], require: nil
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

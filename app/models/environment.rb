@@ -1,4 +1,6 @@
 class Environment < ActiveRecord::Base
+  resourcify
+
   belongs_to :organization
 
   validates_presence_of :organization, on: :create
