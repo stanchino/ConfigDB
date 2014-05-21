@@ -28,35 +28,19 @@ class OrganizationsController < ApplicationController
   # POST /organizations.json
   def create
     @organization = Organization.new(organization_params)
-
-    respond_to do |format|
-      if @organization.save
-        render_success format, @organization, 'Organization was successfully created.'
-      else
-        render_error format, @organization, :new
-      end
-    end
+    create_object(@organization, @organization, 'Organization was successfully created.')
   end
 
   # PATCH/PUT /organizations/1
   # PATCH/PUT /organizations/1.json
   def update
-    respond_to do |format|
-      if @organization.update(organization_params)
-        render_success format, @organization, 'Organization was successfully updated.'
-      else
-        render_error format, @organization, :edit
-      end
-    end
+    update_object(@organization, organization_params, organization_url(@organization), 'Organization was successfully updated')
   end
 
   # DELETE /organizations/1
   # DELETE /organizations/1.json
   def destroy
-    @organization.destroy
-    respond_to do |format|
-      render_no_content format, organizations_url, 'Organization was successfully destroyed.'
-    end
+    destroy_object(@organization, organizations_url, 'Organization was successfully destroyed.')
   end
 
   private

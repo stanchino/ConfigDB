@@ -29,35 +29,19 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
-    respond_to do |format|
-      if @user.save
-        render_success format, @user, 'User was successfully created.'
-      else
-        render_error format, @user, :new
-      end
-    end
+    create_object(@user, @user, 'User was successfully created.')
   end
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    respond_to do |format|
-      if @user.update(user_params)
-        render_success format, @user, 'User was successfully updated.'
-      else
-        render_error format, @user, :edit
-      end
-    end
+    update_object(@user, user_params, user_url(@user), 'User was successfully updated.')
   end
 
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user.destroy
-    respond_to do |format|
-      render_no_content format, users_url, 'User was successfully destroyed.'
-    end
+    destroy_object(@user, users_url, 'User was successfully destroyed.')
   end
 
   private

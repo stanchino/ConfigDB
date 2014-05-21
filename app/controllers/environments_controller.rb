@@ -31,35 +31,19 @@ class EnvironmentsController < ApplicationController
   # POST /organizations/{organization_id}/environments.json
   def create
     @environment = @environments.new(environment_params)
-
-    respond_to do |format|
-      if @environment.save
-        render_success format, [@organization, @environment], 'Environment was successfully created.'
-      else
-        render_error format, @environment, :new
-      end
-    end
+    create_object(@environment, [@organization, @environment], 'Environment was successfully created.')
   end
 
   # PATCH/PUT /organizations/{organization_id}/environments/{id}
   # PATCH/PUT /organizations/{organization_id}/environments/{id}.json
   def update
-    respond_to do |format|
-      if @environment.update(environment_params)
-        render_success format, [@organization, @environment], 'Environment was successfully updated.'
-      else
-        render_error format, @environment, :edit
-      end
-    end
+    update_object(@environment, environment_params, organization_environment_url(@organization, @environment), 'Environment was successfully updated.')
   end
 
   # DELETE /organizations/{organization_id}/environments/{id}
   # DELETE /organizations/{organization_id}/environments/{id}.json
   def destroy
-    @environment.destroy
-    respond_to do |format|
-      render_no_content format, organization_environments_url(@organization), 'Environment was successfully destroyed.'
-    end
+    destroy_object(@environment, organization_environments_url(@organization), 'Environment was successfully destroyed.')
   end
 
   private
