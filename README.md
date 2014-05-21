@@ -3,7 +3,7 @@ Contributing
 The ConfigDB project is OpenSource. Everyone that wants to get involved
 is welcome and can feel free to reuse all the compoments available here.
 
-[![Code Climate](https://codeclimate.com/github/stanchino/ConfigDB.png)](https://codeclimate.com/github/stanchino/ConfigDB) [![Coverage](https://codeclimate.com/github/stanchino/ConfigDB/coverage.png)](https://codeclimate.com/github/stanchino/ConfigDB) [![Travis Build](https://travis-ci.org/stanchino/ConfigDB.svg?branch=development)]
+[![Code Climate](https://codeclimate.com/github/stanchino/ConfigDB.png)](https://codeclimate.com/github/stanchino/ConfigDB) [![Coverage](https://codeclimate.com/github/stanchino/ConfigDB/coverage.png)](https://codeclimate.com/github/stanchino/ConfigDB) [![Travis Build](https://travis-ci.org/stanchino/ConfigDB.svg?branch=development)](https://travis-ci.org/stanchino/ConfigDB)
 
 ### Useful tools
 
