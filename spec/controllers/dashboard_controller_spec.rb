@@ -12,7 +12,7 @@ describe DashboardController do
   describe 'rescue_from' do
     before do
       expect(subject).to receive(:authenticate_user!) { raise CanCan::AccessDenied }
-      expect(subject).to receive(:root_url) { '/' }
+      expect(subject).to receive(:unauthenticated_root_url) { '/' }
     end
     it "rescues from CanCan::AccessDenied" do
       get :index

@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_devise_permitted_parameters, if: :devise_controller?
 
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_url, :alert => exception.message
+    redirect_to unauthenticated_root_url, :alert => exception.message
   end
 
   # DEVISE OVERRIDES
