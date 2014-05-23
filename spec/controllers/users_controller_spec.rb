@@ -2,15 +2,15 @@ require 'spec_helper'
 
 describe UsersController do
 
-  let(:user) { FactoryGirl.build(:super_admin) }
+  let(:super_admin) { FactoryGirl.build(:super_admin) }
 
-  let(:organization) { user.organization }
+  let(:organization) { FactoryGirl.build(:organization) }
 
   before do
-    allow(subject).to receive(:current_user) { user }
+    allow(subject).to receive(:current_user) { super_admin }
   end
 
-  let(:valid_attributes) { { "first_name" => "Test", "last_name" => "User", "email" => "john@doe.com", "password" => "asdfasdf", "organization_id" => organization.to_param } }
+  let(:valid_attributes) { { "first_name" => "Test", "last_name" => "User", "email" => "john@doe.com", "password" => "asdfasdf", "organization_attributes" => { "name" => organization.to_param } } }
 
   let(:valid_attributes_for_admin) { valid_attributes.merge(roles: [stub_model(Role, name: :admin)]) }
 

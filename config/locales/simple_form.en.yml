@@ -17,6 +17,8 @@ en:
         email: 'Email'
         password: 'Password'
         password_confirmation: 'Confirm Password'
+      organization:
+        name: 'Organization'
     # Labels and hints examples
     # labels:
     #   defaults:

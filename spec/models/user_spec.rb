@@ -6,7 +6,9 @@ describe User do
   end
 
   describe 'validations' do
-    it { should validate_presence_of(:organization).on(:update) }
+    it { should validate_presence_of(:organization).on(:create) }
+    it { should validate_presence_of(:first_name) }
+    it { should validate_presence_of(:last_name) }
   end
 
   describe '#full_name' do
@@ -41,8 +43,7 @@ describe User do
 
   describe '#set_default_role' do
     before do
-      expect(Role).to receive(:new) { 'role' }
-      expect(subject.roles).to receive(:<<).with('role')
+      expect(subject).to receive(:add_role).with(:user)
     end
 
     it { subject.send(:set_default_role) }

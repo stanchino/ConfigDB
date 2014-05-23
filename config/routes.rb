@@ -4,13 +4,13 @@ Rails.application.routes.draw do
     get 'login' => 'devise/sessions#new', :as => :new_user_session
     get 'register' => 'devise/registrations#new', :as => :new_user_registration
     post 'login' => 'devise/sessions#create', :as => :user_session
-    post 'registar' => 'devise/registrations#create', :as => :user_registration
+    post 'register' => 'devise/registrations#create', :as => :user_registration
     delete 'logout' => 'devise/sessions#destroy', :as => :destroy_user_session
   end
 
   authenticated :user do
     devise_scope :user do
-      root to: 'users#index', as: 'authenticated_root'
+      root to: 'dashboard#index', as: 'authenticated_root'
     end
   end
 
