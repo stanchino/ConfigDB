@@ -1,0 +1,9 @@
+p#notice = notice
+
+p
+  strong Organization:
+  = @scope.organization
+
+= link_to 'Edit', edit_organization_scope_path(@organization, @scope)
+'|
+= link_to 'Back', organization_scopes_path(@organization)

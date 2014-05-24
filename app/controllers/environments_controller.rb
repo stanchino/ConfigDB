@@ -10,7 +10,6 @@ class EnvironmentsController < ApplicationController
   # GET /organizations/{organization_id}/environments
   # GET /organizations/{organization_id}/environments.json
   def index
-    @environments = @environments.all
   end
 
   # GET /organizations/{organization_id}/environments/{id}

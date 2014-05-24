@@ -24,6 +24,8 @@ Rails.application.routes.draw do
 
   resources :organizations do
     resources :environments
+    resources :categories
+    resources :scopes
   end
 
 

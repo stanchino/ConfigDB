@@ -18,17 +18,17 @@ require 'spec_helper'
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.
 
-describe EnvironmentsController do
+describe CategoriesController do
 
   # This should return the minimal set of attributes required to create a valid
-  # Environment. As you add validations to Environment, be sure to
+  # Category. As you add validations to Category, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "name" => "env", "textkey" => "env_key", "organization_id" => organization.to_param } }
+  let(:valid_attributes) { { "organization_id" => organization.to_param } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
-  # EnvironmentsController. Be sure to keep this updated too.
+  # CategoriesController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  it_should_behave_like "nested organization controller", Environment
+  it_should_behave_like "nested organization controller", Category
 end

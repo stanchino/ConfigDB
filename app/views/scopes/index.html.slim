@@ -1,0 +1,21 @@
+h1 Listing scopes
+
+table
+  thead
+    tr
+      th Organization
+      th
+      th
+      th
+
+  tbody
+    - @scopes.each do |scope|
+      tr
+        td = scope.organization.name
+        td = link_to 'Show', [@organization, scope]
+        td = link_to 'Edit', edit_organization_scope_path(@organization, scope)
+        td = link_to 'Destroy', [@organization, scope], data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Scope', new_organization_scope_path(@organization)

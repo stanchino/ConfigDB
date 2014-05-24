@@ -1,0 +1,8 @@
+= simple_form_for(@scope, url: [@organization, @scope]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :organization
+
+  .form-actions
+    = f.button :submit

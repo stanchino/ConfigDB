@@ -1,0 +1,21 @@
+h1 Listing categories
+
+table
+  thead
+    tr
+      th Organization
+      th
+      th
+      th
+
+  tbody
+    - @categories.each do |category|
+      tr
+        td = category.organization.name
+        td = link_to 'Show', [@organization, category]
+        td = link_to 'Edit', edit_organization_category_path(@organization, category)
+        td = link_to 'Destroy', [@organization, category], data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Category', new_organization_category_url(@organization)
