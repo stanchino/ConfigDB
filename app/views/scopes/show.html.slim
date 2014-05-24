@@ -1,8 +1,6 @@
-p#notice = notice
-
 p
   strong Organization:
-  = @scope.organization
+  = @scope.organization.name
 
 = link_to 'Edit', edit_organization_scope_path(@organization, @scope)
 '|

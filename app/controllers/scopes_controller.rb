@@ -1,11 +1,8 @@
 class ScopesController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource :organization
+  load_and_authorize_resource through: :organization
 
   include Response
-
-  before_action :get_organization
-  before_action :set_scopes
-  before_action :set_scope, only: [:show, :edit, :update, :destroy]
 
   # GET /scopes
   # GET /scopes.json
@@ -19,7 +16,6 @@ class ScopesController < ApplicationController
 
   # GET /scopes/new
   def new
-    @scope = @scopes.new
   end
 
   # GET /scopes/1/edit
@@ -29,7 +25,6 @@ class ScopesController < ApplicationController
   # POST /scopes
   # POST /scopes.json
   def create
-    @scope = @scopes.new(scope_params)
     create_object(@scope, [@organization, @scope], 'Scope was successfully created.')
   end
 
@@ -46,19 +41,6 @@ class ScopesController < ApplicationController
   end
 
   private
-    def get_organization
-      @organization = Organization.find(params[:organization_id])
-    end
-
-    def set_scopes
-      @scopes = @organization.scopes
-    end
-
-    # Use callbacks to share common setup or constraints between actions.
-    def set_scope
-      @scope = @scopes.find(params[:id])
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def scope_params
       params.require(:scope).permit(:organization_id)

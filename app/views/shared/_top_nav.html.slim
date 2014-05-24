@@ -1,0 +1,13 @@
+.row
+  .col-xs-6.col-md-3
+    .panel.panel-default
+      h4.text-center = link_to 'Organization', organization_url(current_organization)
+  .col-xs-6.col-md-3
+    .panel.panel-default
+      h4.text-center = link_to 'Environments', organization_environments_url(current_organization)
+  .col-xs-6.col-md-3
+    .panel.panel-default
+      h4.text-center = link_to 'Categories', organization_categories_url(current_organization)
+  .col-xs-6.col-md-3
+    .panel.panel-default
+      h4.text-center = link_to 'Scopes', organization_scopes_url(current_organization)

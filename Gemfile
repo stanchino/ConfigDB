@@ -16,6 +16,7 @@ gem 'country_select'
 gem 'devise'
 gem 'cancancan'
 gem 'rolify'
+gem 'sprockets'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'

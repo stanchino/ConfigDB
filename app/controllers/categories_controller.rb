@@ -1,11 +1,8 @@
 class CategoriesController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource :organization
+  load_and_authorize_resource through: :organization
 
   include Response
-
-  before_action :get_organization
-  before_action :set_categories
-  before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   # GET /categories
   # GET /categories.json
@@ -19,7 +16,6 @@ class CategoriesController < ApplicationController
 
   # GET /categories/new
   def new
-    @category = @categories.new
   end
 
   # GET /categories/1/edit
@@ -29,7 +25,6 @@ class CategoriesController < ApplicationController
   # POST /categories
   # POST /categories.json
   def create
-    @category = @categories.new(category_params)
     create_object(@category, [@organization, @category], 'Category was successfully created.')
   end
 
@@ -46,19 +41,6 @@ class CategoriesController < ApplicationController
   end
 
   private
-    def get_organization
-      @organization = Organization.find(params[:organization_id])
-    end
-
-    def set_categories
-      @categories = @organization.categories
-    end
-
-    # Use callbacks to share common setup or constraints between actions.
-    def set_category
-      @category = Category.find(params[:id])
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def category_params
       params.require(:category).permit(:organization_id)

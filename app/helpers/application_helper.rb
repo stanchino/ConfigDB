@@ -7,6 +7,10 @@ module ApplicationHelper
     end
   end
 
+  def current_organization
+    @organization || current_user.organization
+  end
+
   def no_autocomplete_simple_form_for(resource, options={}, &block)
     if options[:html]
       options[:html][:autocomplete] = 'off'

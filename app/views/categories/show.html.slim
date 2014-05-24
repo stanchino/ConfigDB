@@ -1,8 +1,6 @@
-p#notice = notice
-
 p
   strong Organization:
-  = @category.organization
+  = @category.organization.name
 
 
 = link_to 'Edit', edit_organization_category_url(@organization, @category)

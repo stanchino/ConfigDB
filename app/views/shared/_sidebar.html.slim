@@ -1,5 +1,9 @@
-ul.nav.nav-sidebar
-  li = link_to 'Dashboard', '#'
-  li.active = link_to 'Users', users_url
-  li = link_to 'Reports', '#'
-  li = link_to 'Analytics', '#'
+- if current_organization.categories.any?
+  ul.nav.nav-sidebar
+    - current_organization.categories.each do |category|
+      - unless category.new_record?
+        = link_to category, '#'
+  hr
+= link_to new_organization_category_url(current_organization)
+  i.fa.fa-plus-circle
+  |  Add category

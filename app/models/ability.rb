@@ -8,6 +8,8 @@ class Ability
     elsif user.has_role? :user
       can [:show, :update], Organization, id: user.organization_id
       can [:manage], Environment, organization: { id: user.organization_id }
+      can [:manage], Scope, organization: { id: user.organization_id }
+      can [:manage], Category, organization: { id: user.organization_id }
     end
 
     # Define abilities for the passed in user here. For example:
