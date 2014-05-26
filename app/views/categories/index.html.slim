@@ -1,19 +1,23 @@
-table
-  thead
-    tr
-      th Organization
-      th
-      th
-      th
-
-  tbody
-    - @categories.each do |category|
+.table-responsive
+  table.table.table-striped.table-hover
+    thead
       tr
-        td = category.organization.name
-        td = link_to 'Show', [@organization, category]
-        td = link_to 'Edit', edit_organization_category_path(@organization, category)
-        td = link_to 'Destroy', [@organization, category], data: {:confirm => 'Are you sure?'}, :method => :delete
+        th Name
+        th Text Key
+        th
 
-br
+    tbody
+      - @categories.each do |category|
+        tr
+          td = category.name
+          td = category.textkey
+          td
+            .row
+              .col-xs-12.col-md-4
+                = link_to 'Show', [@organization, category]
+              .col-xs-12.col-md-4
+                = link_to 'Edit', edit_organization_category_path(@organization, category)
+              .col-xs-12.col-md-4
+                = link_to 'Destroy', [@organization, category], data: {:confirm => 'Are you sure?'}, :method => :delete
 
 = link_to 'New Category', new_organization_category_url(@organization)

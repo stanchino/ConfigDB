@@ -7,6 +7,17 @@ GIT
       actionpack (~> 4.0)
       activemodel (~> 4.0)
 
+GIT
+  remote: https://github.com/paulwittmann/rails-erd
+  revision: 9ccb094fa29b095d5549271f48c65af8bb53f749
+  branch: mavericks
+  specs:
+    rails-erd (1.1.0)
+      activerecord (>= 3.0)
+      activesupport (>= 3.0)
+      choice (~> 0.1.6)
+      ruby-graphviz (~> 1.0.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -36,12 +47,16 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    apipie-rails (0.2.1)
+      json
+      rails (>= 3.0.10)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
     bootstrap-sass (3.1.1.1)
       sass (~> 3.2)
     builder (3.2.2)
     cancancan (1.8.0)
+    choice (0.1.6)
     codeclimate-test-reporter (0.3.0)
       simplecov (>= 0.7.1, < 1.0.0)
     coffee-rails (4.0.1)
@@ -141,6 +156,7 @@ GEM
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
       rspec-mocks (~> 2.14.0)
+    ruby-graphviz (1.0.9)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -196,6 +212,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  apipie-rails
   bootstrap-sass
   cancancan
   codeclimate-test-reporter
@@ -212,6 +229,7 @@ DEPENDENCIES
   pg
   puma
   rails
+  rails-erd!
   rails_12factor
   rolify
   rspec-rails

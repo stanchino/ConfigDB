@@ -1,23 +1,25 @@
-table
-  thead
-    tr
-      th Organization
-      th Name
-      th Textkey
-      th
-      th
-      th
-
-  tbody
-    - @environments.each do |environment|
+.table-responsive
+  table.table.table-striped.table-hover
+    thead
       tr
-        td = @organization.name
-        td = environment.name
-        td = environment.textkey
-        td = link_to 'Show', [@organization, environment]
-        td = link_to 'Edit', edit_organization_environment_path(@organization, environment)
-        td = link_to 'Destroy', [@organization, environment], data: {:confirm => 'Are you sure?'}, :method => :delete
+        th Organization
+        th Name
+        th Textkey
+        th.col-md-3 Actions
 
-br
+    tbody
+      - @environments.each do |environment|
+        tr
+          td = @organization.name
+          td = environment.name
+          td = environment.textkey
+          td
+            .row
+              .col-xs-12.col-md-4
+                = link_to 'Show', [@organization, environment]
+              .col-xs-12.col-md-4
+                = link_to 'Edit', edit_organization_environment_path(@organization, environment)
+              .col-xs-12.col-md-4
+                = link_to 'Destroy', [@organization, environment], data: {:confirm => 'Are you sure?'}, :method => :delete
 
 = link_to 'New Environment', new_organization_environment_path(@organization)

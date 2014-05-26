@@ -3,6 +3,7 @@ require 'spec_helper'
 describe Environment do
   describe 'relations' do
     it { should belong_to(:organization) }
+    it { should have_many(:variables).through(:values) }
   end
 
   describe 'validations' do

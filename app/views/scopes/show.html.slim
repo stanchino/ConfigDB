@@ -1,6 +1,17 @@
 p
   strong Organization:
+  '
   = @scope.organization.name
+
+p
+  strong Name:
+  '
+  = @scope.name
+
+p
+  strong Text Key:
+  '
+  = @scope.textkey
 
 = link_to 'Edit', edit_organization_scope_path(@organization, @scope)
 '|

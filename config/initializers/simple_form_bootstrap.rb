@@ -13,7 +13,7 @@ SimpleForm.setup do |config|
     b.optional :pattern
     b.optional :readonly
 
-    b.use :label, class: 'control-label sr-only'
+    b.use :label, class: 'control-label'
 
     b.wrapper tag: 'div' do |ba|
       ba.use :input, class: 'form-control'

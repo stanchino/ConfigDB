@@ -10,6 +10,10 @@ en:
       # html: '<abbr title="required">*</abbr>'
     error_notification:
       default_message: "Please review the problems below:"
+    labels:
+      defaults:
+        name: 'Name'
+        textkey: 'TextKey'
     placeholders:
       user:
         first_name: 'First Name'
@@ -18,7 +22,16 @@ en:
         password: 'Password'
         password_confirmation: 'Confirm Password'
       organization:
-        name: 'Organization'
+        name: 'eg. MyCrop LLC'
+      environment:
+        name: 'eg. Development Environment'
+        textkey: 'eg. development'
+      scope:
+        name: 'eg. Configuration for Acme Corp'
+        textkey: 'eg. acme_corp'
+      category:
+        name: 'eg. Application, API, Billing, etc.'
+        textkey: 'eg. application, api, billing, etc.'
     # Labels and hints examples
     # labels:
     #   defaults:

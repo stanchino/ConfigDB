@@ -4,38 +4,56 @@ class ScopesController < ApplicationController
 
   include Response
 
-  # GET /scopes
-  # GET /scopes.json
+  # GET /organizations/{ortanization_id}/scopes
+  # GET /organizations/{ortanization_id}/scopes.json
+  api :GET, '/organizations/:organization_id/environments'
+  param :organization_id, :number
   def index
   end
 
-  # GET /scopes/1
-  # GET /scopes/1.json
+  # GET /organizations/{ortanization_id}/scopes/{id}
+  # GET /organizations/{ortanization_id}/scopes/{id}.json
+  api :GET, '/organizations/:organization_id/environments/:id'
+  param :organization_id, :number
+  param :id, :number
   def show
   end
 
-  # GET /scopes/new
+  # GET /organizations/{ortanization_id}/scopes/new
+  api :GET, '/organizations/:organization_id/environments/new'
+  param :organization_id, :number
   def new
   end
 
-  # GET /scopes/1/edit
+  # GET /organizations/{ortanization_id}/scopes/{id}/edit
+  api :GET, '/organizations/:organization_id/environments/:id/edit'
+  param :organization_id, :number
+  param :id, :number
   def edit
   end
 
-  # POST /scopes
-  # POST /scopes.json
+  # POST /organizations/{ortanization_id}/scopes
+  # POST /organizations/{ortanization_id}/scopes.json
+  api :POST, '/organizations/:organization_id/environments'
+  param :organization_id, :number
   def create
     create_object(@scope, [@organization, @scope], 'Scope was successfully created.')
   end
 
-  # PATCH/PUT /scopes/1
-  # PATCH/PUT /scopes/1.json
+  # PATCH/PUT /organizations/{ortanization_id}/scopes/{id}
+  # PATCH/PUT /organizations/{ortanization_id}/scopes/{id}.json
+  api :PUT, '/organizations/:organization_id/environments/:id'
+  param :organization_id, :number
+  param :id, :number
   def update
     update_object(@scope, scope_params, organization_scope_url(@organization, @scope), 'Scope was successfully updated.')
   end
 
-  # DELETE /scopes/1
-  # DELETE /scopes/1.json
+  # DELETE /organizations/{ortanization_id}/scopes/1
+  # DELETE /organizations/{ortanization_id}/scopes/{id}.json
+  api :DELETE, '/organizations/:organization_id/environments/:id'
+  param :organization_id, :number
+  param :id, :number
   def destroy
     destroy_object(@scope, organization_scopes_url(@organization), 'Scope was successfully destroyed.')
   end
@@ -43,6 +61,6 @@ class ScopesController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def scope_params
-      params.require(:scope).permit(:organization_id)
+      params.require(:scope).permit(:organization_id, :name, :textkey)
     end
 end

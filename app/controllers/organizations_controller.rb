@@ -6,26 +6,33 @@ class OrganizationsController < ApplicationController
 
   # GET /organizations
   # GET /organizations.json
+  api :GET, '/organizations'
   def index
     @organizations = Organization.all
   end
 
   # GET /organizations/1
   # GET /organizations/1.json
+  api :GET, '/organizations/:id'
+  param :id, :number
   def show
   end
 
   # GET /organizations/new
+  api :GET, '/organizations/new'
   def new
     @organization = Organization.new
   end
 
   # GET /organizations/1/edit
+  api :GET, '/organizations/:id/edit'
+  param :id, :number
   def edit
   end
 
   # POST /organizations
   # POST /organizations.json
+  api :POST, '/organizations'
   def create
     @organization = Organization.new(organization_params)
     create_object(@organization, @organization, 'Organization was successfully created.')
@@ -33,12 +40,16 @@ class OrganizationsController < ApplicationController
 
   # PATCH/PUT /organizations/1
   # PATCH/PUT /organizations/1.json
+  api :PUT, '/organizations/:id'
+  param :id, :number
   def update
     update_object(@organization, organization_params, organization_url(@organization), 'Organization was successfully updated')
   end
 
   # DELETE /organizations/1
   # DELETE /organizations/1.json
+  api :DELETE, '/organizations/:id'
+  param :id, :number
   def destroy
     destroy_object(@organization, organizations_url, 'Organization was successfully destroyed.')
   end

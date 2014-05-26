@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140523213412) do
+ActiveRecord::Schema.define(version: 20140526200234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20140523213412) do
     t.integer  "organization_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
+    t.string   "textkey"
   end
 
   add_index "categories", ["organization_id"], name: "index_categories_on_organization_id", using: :btree
@@ -55,6 +57,8 @@ ActiveRecord::Schema.define(version: 20140523213412) do
     t.integer  "organization_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
+    t.string   "textkey"
   end
 
   add_index "scopes", ["organization_id"], name: "index_scopes_on_organization_id", using: :btree
@@ -88,5 +92,28 @@ ActiveRecord::Schema.define(version: 20140523213412) do
   end
 
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
+
+  create_table "values", force: true do |t|
+    t.integer  "variable_id"
+    t.integer  "environment_id"
+    t.integer  "scope_id"
+    t.string   "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "values", ["environment_id"], name: "index_values_on_environment_id", using: :btree
+  add_index "values", ["scope_id"], name: "index_values_on_scope_id", using: :btree
+  add_index "values", ["variable_id"], name: "index_values_on_variable_id", using: :btree
+
+  create_table "variables", force: true do |t|
+    t.string   "name"
+    t.string   "textkey"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "variables", ["category_id"], name: "index_variables_on_category_id", using: :btree
 
 end

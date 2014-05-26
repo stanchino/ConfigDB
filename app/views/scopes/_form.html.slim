@@ -1,8 +1,11 @@
-= simple_form_for(@scope, url: [@organization, @scope]) do |f|
-  = f.error_notification
+.row
+  = simple_form_for(@scope, url: [@organization, @scope], html: {class: 'col-md-6'}) do |f|
+    = f.error_notification
 
-  .form-inputs
-    = f.association :organization
+    .form-inputs
+        = f.input :name
+        = f.input :textkey
 
-  .form-actions
-    = f.button :submit
+
+    .form-actions
+      = f.button :submit

@@ -1,11 +1,14 @@
 p
   strong Organization:
+  '
   = @organization.name
 p
   strong Name:
+  '
   = @environment.name
 p
   strong Textkey:
+  '
   = @environment.textkey
 
 = link_to 'Edit', edit_organization_environment_url(@organization, @environment)

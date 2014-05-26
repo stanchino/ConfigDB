@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  apipie
   devise_for :users, skip: [:sessions, :registrations]
   as :user do
     get 'login' => 'devise/sessions#new', :as => :new_user_session
