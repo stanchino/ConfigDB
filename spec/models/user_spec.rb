@@ -7,26 +7,32 @@ describe User do
 
   describe 'validations' do
     it { should validate_presence_of(:organization).on(:create) }
-    it { should validate_presence_of(:first_name) }
-    it { should validate_presence_of(:last_name) }
+    it { should validate_presence_of(:full_name) }
   end
 
-  describe '#full_name' do
-    context 'without name' do
-      subject { stub_model(User, first_name: nil, last_name: nil) }
-      it { expect(subject.full_name).to eq '' }
+  describe '#first_name' do
+    context 'without full name' do
+      subject { stub_model(User, full_name: nil) }
+      it { expect(subject.first_name).to eq '' }
     end
-    context 'without first_name' do
-      subject { stub_model(User, first_name: nil, last_name: 'Doe') }
-      it { expect(subject.full_name).to eq 'Doe' }
+    context 'wit full name' do
+      subject { stub_model(User, full_name: 'John') }
+      it { expect(subject.first_name).to eq 'John' }
     end
-    context 'without last_name' do
-      subject { stub_model(User, first_name: 'John', last_name: nil) }
-      it { expect(subject.full_name).to eq 'John' }
+  end
+
+  describe '#last_name' do
+    context 'without full name' do
+      subject { stub_model(User, full_name: nil) }
+      it { expect(subject.last_name).to eq '' }
     end
-    context 'with name' do
-      subject { stub_model(User, first_name: 'John', last_name: 'Doe') }
-      it { expect(subject.full_name).to eq 'John Doe' }
+    context 'without last name' do
+      subject { stub_model(User, full_name: 'John') }
+      it { expect(subject.last_name).to eq '' }
+    end
+    context 'with last name' do
+      subject { stub_model(User, full_name: 'John Doe') }
+      it { expect(subject.last_name).to eq 'Doe' }
     end
   end
 

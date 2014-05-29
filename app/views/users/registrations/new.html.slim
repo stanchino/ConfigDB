@@ -6,17 +6,15 @@
       = f.error_notification
       .form-inputs
         .row
-          = prepend_input f, :first_name, 'fa-user', { required: true, autofocus: true, wrapper_html: { class: 'col-lg-12' } }
+          = prepend_input f, :full_name, 'fa-user', { required: true, autofocus: true, wrapper_html: { class: 'col-lg-12' }, label_html: { class: 'sr-only' } }
         .row
-          = prepend_input f, :last_name, 'fa-user', { required: true, wrapper_html: { class: 'col-lg-12' } }
+          = prepend_input f, :email, 'fa-envelope', { required: true, wrapper_html: { class: 'col-lg-12' }, label_html: { class: 'sr-only' } }
         .row
           = f.simple_fields_for(:organization, resource.build_organization) do |o|
-            = prepend_input o, :name, 'fa-building', { required: true, autofocus: true, wrapper_html: { class: 'col-lg-12' } }
+            = prepend_input o, :name, 'fa-building', { required: true, autofocus: true, wrapper_html: { class: 'col-lg-12' }, label_html: { class: 'sr-only' } }
         .row
-          = prepend_input f, :email, 'fa-envelope', { required: true, wrapper_html: { class: 'col-lg-12' } }
+          = prepend_input f, :password, 'fa-key', { required: true, wrapper_html: { class: 'col-lg-12' }, label_html: { class: 'sr-only' } }
         .row
-          = prepend_input f, :password, 'fa-key', { required: true, wrapper_html: { class: 'col-lg-12' } }
-        .row
-          = prepend_input f, :password_confirmation, 'fa-key', { required: true, wrapper_html: { class: 'col-lg-12' } }
+          = prepend_input f, :password_confirmation, 'fa-key', { required: true, wrapper_html: { class: 'col-lg-12' }, label_html: { class: 'sr-only' } }
       .form-actions
         = f.submit "Register", class: 'btn btn-success btn-lg'

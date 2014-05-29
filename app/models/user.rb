@@ -11,15 +11,19 @@ class User < ActiveRecord::Base
 
   # Validations
   validates_presence_of :organization, on: :create
-  validates_presence_of :first_name, :last_name
+  validates_presence_of :full_name
 
   # Hooks
   before_create :set_default_role, unless: :role_set?
 
   accepts_nested_attributes_for :organization
 
-  def full_name
-    [first_name, last_name].reject(&:blank?).join(' ')
+  def first_name
+    full_name.present? ? extract_names[0] : ''
+  end
+
+  def last_name
+    full_name.present? && extract_names.size > 1 ? extract_names[-1] : ''
   end
 
   private
@@ -29,5 +33,9 @@ class User < ActiveRecord::Base
 
   def role_set?
     roles.any?
+  end
+
+  def extract_names
+    @extracted_names ||= full_name.split(' ')
   end
 end

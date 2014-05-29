@@ -14,15 +14,18 @@ en:
       defaults:
         name: 'Name'
         textkey: 'TextKey'
+      user:
+        full_name: 'Name'
+      organization:
+        name: 'Organization'
     placeholders:
       user:
-        first_name: 'First Name'
-        last_name: 'Last Name'
+        full_name: 'Your Name'
         email: 'Email'
         password: 'Password'
         password_confirmation: 'Confirm Password'
       organization:
-        name: 'eg. MyCrop LLC'
+        name: 'Organization'
       environment:
         name: 'eg. Development Environment'
         textkey: 'eg. development'

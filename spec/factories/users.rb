@@ -1,11 +1,11 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
+require 'faker'
 
 FactoryGirl.define do
   factory :user do
-    first_name "MyString"
-    last_name "MyString"
-    email "john@doe.com"
-    password "MyString"
+    full_name Faker::Name.name
+    sequence(:email) { |n| Faker::Internet.email("person#{n}") }
+    password Faker::Lorem.characters(10)
     organization
 
     factory :super_admin do

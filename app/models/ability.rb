@@ -10,6 +10,7 @@ class Ability
       can [:manage], Environment, organization: { id: user.organization_id }
       can [:manage], Scope, organization: { id: user.organization_id }
       can [:manage], Category, organization: { id: user.organization_id }
+      can [:update], User, id: user.id
     end
 
     # Define abilities for the passed in user here. For example:

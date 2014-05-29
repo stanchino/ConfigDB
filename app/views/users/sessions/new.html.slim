@@ -6,9 +6,9 @@
       = f.error_notification
       .form-inputs
         .row
-          = prepend_input f, :email, 'fa-envelope', { required: true, autofocus: true, wrapper_html: { class: 'col-lg-12' } }
+          = prepend_input f, :email, 'fa-envelope', { required: true, autofocus: true, wrapper_html: { class: 'col-lg-12' }, label_html: { class: 'sr-only' } }
         .row
-          = prepend_input f, :password,'fa-key', { required: true, wrapper_html: { class: 'col-lg-12' } }
+          = prepend_input f, :password,'fa-key', { required: true, wrapper_html: { class: 'col-lg-12' }, label_html: { class: 'sr-only' } }
         .row
           = f.input :remember_me, as: :boolean, wrapper: :vertical_boolean, wrapper_html: { class: 'col-lg-12' } if devise_mapping.rememberable?
       .form-actions

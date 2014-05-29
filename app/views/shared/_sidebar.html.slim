@@ -2,7 +2,7 @@
   ul.nav.nav-sidebar
     - current_organization.categories.each do |category|
       - unless category.new_record?
-        = link_to category, '#'
+        li = link_to category.name, '#'
   hr
 = link_to new_organization_category_url(current_organization)
   i.fa.fa-plus-circle
