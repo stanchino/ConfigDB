@@ -1,7 +1,7 @@
 shared_examples "nested organization controller" do |klass|
-  let(:user) { FactoryGirl.build(:super_admin) }
-
-  let(:organization) { user.organization }
+  let(:account) { FactoryGirl.create(:super_admin_account) }
+  let(:user) { account.users.first }
+  let(:organization) { account.organizations.first }
 
   before do
     @resource_collection = klass.to_s.tableize.to_sym

@@ -7,16 +7,17 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Relations
-  belongs_to :organization
+  belongs_to :account
+  has_many :organizations, through: :account
 
   # Validations
-  validates_presence_of :organization, on: :create
+  #validates_presence_of :organization, on: :create
   validates_presence_of :full_name
 
   # Hooks
   before_create :set_default_role, unless: :role_set?
 
-  accepts_nested_attributes_for :organization
+  accepts_nested_attributes_for :account
 
   def first_name
     full_name.present? ? extract_names[0] : ''

@@ -2,11 +2,11 @@ require 'spec_helper'
 
 describe User do
   describe 'relations' do
-    it { should belong_to(:organization) }
+    it { should belong_to(:account) }
+    it { should have_many(:organizations).through(:account) }
   end
 
   describe 'validations' do
-    it { should validate_presence_of(:organization).on(:create) }
     it { should validate_presence_of(:full_name) }
   end
 

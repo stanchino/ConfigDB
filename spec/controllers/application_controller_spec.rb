@@ -31,7 +31,7 @@ describe ApplicationController do
 
     before do
       subject.stub_chain(:devise_parameter_sanitizer, :for).with().with(:sign_up).and_yield attrs
-      expect(attrs).to receive(:permit).with(:full_name, :email, :password, :password_confirmation, { organization_attributes: [:name] }) { 'result' }
+      expect(attrs).to receive(:permit).with(:full_name, :email, :password, :password_confirmation, { account_attributes: { organizations_attributes: [:name] } }) { 'result' }
     end
     it { expect(subject.configure_devise_permitted_parameters).to eq 'result' }
   end

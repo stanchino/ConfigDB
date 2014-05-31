@@ -10,7 +10,7 @@ describe UsersController do
     allow(subject).to receive(:current_user) { super_admin }
   end
 
-  let(:valid_attributes) { { "full_name" => "Test User", "email" => "john@doe.com", "password" => "asdfasdf", "organization_attributes" => { "name" => organization.to_param } } }
+  let(:valid_attributes) { { "full_name" => "Test User", "email" => "john@doe.com", "password" => "asdfasdf", "account_attributes" => {"organizations_attributes" => [{ "name" => organization.to_param }] } } }
 
   let(:valid_attributes_for_admin) { valid_attributes.merge(roles: [stub_model(Role, name: :admin)]) }
 

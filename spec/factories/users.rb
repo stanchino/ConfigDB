@@ -6,7 +6,6 @@ FactoryGirl.define do
     full_name Faker::Name.name
     sequence(:email) { |n| Faker::Internet.email("person#{n}") }
     password Faker::Lorem.characters(10)
-    organization
 
     factory :super_admin do
       after(:build) { |user| user.add_role(:super_admin) }

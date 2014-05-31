@@ -12,13 +12,16 @@ describe Ability do
   end
 
   context "user" do
-    let(:user) { FactoryGirl.create(:regular_user) }
-    let(:another_user) { FactoryGirl.create(:regular_user) }
-    let(:organization) { user.organization }
+    let(:account) { FactoryGirl.create(:regular_account) }
+    let(:user) { account.users.first }
+    let(:organization) { account.organizations.first }
     let(:environment) { FactoryGirl.build(:environment, organization: organization) }
     let(:scope) { FactoryGirl.build(:scope, organization: organization) }
     let(:category) { FactoryGirl.build(:category, organization: organization) }
-    let(:another_organization) { stub_model(Organization) }
+
+    let(:another_account) { FactoryGirl.create(:regular_account) }
+    let(:another_user) { another_account.users.first }
+    let(:another_organization) { another_account.organizations.first }
     let(:another_environment) { FactoryGirl.build(:environment, organization: another_organization) }
     let(:another_scope) { FactoryGirl.build(:scope, organization: another_organization) }
     let(:another_category) { FactoryGirl.build(:category, organization: another_organization) }

@@ -8,7 +8,7 @@ module ApplicationHelper
   end
 
   def current_organization
-    @organization || current_user.organization
+    @organization || current_user.organizations.first
   end
 
   def no_autocomplete_simple_form_for(resource, options={}, &block)

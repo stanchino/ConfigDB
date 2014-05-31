@@ -10,8 +10,9 @@
         .row
           = prepend_input f, :email, 'fa-envelope', { required: true, wrapper_html: { class: 'col-lg-12' }, label_html: { class: 'sr-only' } }
         .row
-          = f.simple_fields_for(:organization, resource.build_organization) do |o|
-            = prepend_input o, :name, 'fa-building', { required: true, autofocus: true, wrapper_html: { class: 'col-lg-12' }, label_html: { class: 'sr-only' } }
+          = f.simple_fields_for(:account, resource.build_account) do |a|
+            = a.simple_fields_for(:organizations, a.object.organizations.build) do |o|
+              = prepend_input o, :name, 'fa-building', { required: true, autofocus: true, wrapper_html: { class: 'col-lg-12' }, label_html: { class: 'sr-only' } }
         .row
           = prepend_input f, :password, 'fa-key', { required: true, wrapper_html: { class: 'col-lg-12' }, label_html: { class: 'sr-only' } }
         .row

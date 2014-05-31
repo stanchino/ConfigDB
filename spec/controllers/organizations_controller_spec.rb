@@ -21,9 +21,9 @@ require 'faker'
 
 describe OrganizationsController do
 
-  let(:user) { FactoryGirl.build(:super_admin) }
-
-  let(:organization) { user.organization }
+  let(:account) { FactoryGirl.create(:super_admin_account) }
+  let(:user) { account.users.first }
+  let(:organization) { account.organizations.first }
 
   before do
     organization

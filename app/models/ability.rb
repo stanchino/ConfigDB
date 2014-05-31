@@ -6,10 +6,10 @@ class Ability
     if user.has_role? :super_admin
       can :manage, :all
     elsif user.has_role? :user
-      can [:show, :update], Organization, id: user.organization_id
-      can [:manage], Environment, organization: { id: user.organization_id }
-      can [:manage], Scope, organization: { id: user.organization_id }
-      can [:manage], Category, organization: { id: user.organization_id }
+      can [:show, :update], Organization, account: { id: user.account.id }
+      can [:manage], Environment, organization: { account: { id: user.account.id } }
+      can [:manage], Scope, organization: { account: { id: user.account.id } }
+      can [:manage], Category, organization: { account: { id: user.account.id } }
       can [:update], User, id: user.id
     end
 
