@@ -1,5 +1,5 @@
 .row
-  = simple_form_for(@category, url: [@organization, @category], html: {class: 'col-md-6'}) do |f|
+  = simple_form_for(current_category, url: [@organization, current_category], html: {class: 'col-md-6'}) do |f|
     = f.error_notification
 
     .form-inputs

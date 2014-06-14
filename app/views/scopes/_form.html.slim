@@ -1,5 +1,5 @@
 .row
-  = simple_form_for(@scope, url: [@organization, @scope], html: {class: 'col-md-6'}) do |f|
+  = simple_form_for(current_scope, url: [@organization, current_scope], html: {class: 'col-md-6'}) do |f|
     = f.error_notification
 
     .form-inputs

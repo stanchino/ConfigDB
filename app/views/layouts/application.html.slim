@@ -21,8 +21,10 @@ html lang="en"
         .col-sm-3.col-md-2.sidebar
           = render partial: 'shared/sidebar'
         .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
-          p#alert = alert
-          p#notice = notice
+          - if alert.present?
+            p#alert = alert
+          - if notice.present?
+            p#notice = notice
           == render 'shared/top_nav'
           = content_for?(:content) ? yield(:content) : yield
     = render partial: 'shared/footer'

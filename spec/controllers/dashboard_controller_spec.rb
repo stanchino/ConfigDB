@@ -2,10 +2,18 @@ require 'spec_helper'
 
 describe DashboardController do
   describe 'GET index' do
-    before { expect(subject).to receive(:authenticate_user!) { true } }
+    let(:account) { FactoryGirl.create(:super_admin_account) }
+    let(:user) { account.users.first }
+    let(:organization) { account.organizations.first }
+
+    before do
+      expect(subject).to receive(:authenticate_user!) { true }
+      expect(subject).to receive(:current_user) { user }
+    end
+
     it 'render dashboard' do
       get :index
-      response.should be_success
+      response.should redirect_to(organization_categories_url(organization))
     end
   end
 

@@ -2,9 +2,7 @@ require 'spec_helper'
 
 describe "scopes/edit" do
   before(:each) do
-    @scope = assign(:scope, stub_model(Scope,
-      :organization => nil
-    ))
+    @scope = assign(:scope, FactoryGirl.create(:scope))
     @organization = assign(:organization, stub_model(Organization, scopes: [@scope]))
   end
 

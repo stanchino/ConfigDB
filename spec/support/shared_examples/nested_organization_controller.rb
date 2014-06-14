@@ -6,9 +6,6 @@ shared_examples "nested organization controller" do |klass|
   before do
     @resource_collection = klass.to_s.tableize.to_sym
     @resource_object = klass.to_s.tableize.singularize.to_sym
-  end
-
-  before do
     allow(subject).to receive(:current_user) { user }
   end
 
@@ -88,7 +85,7 @@ shared_examples "nested organization controller" do |klass|
     before { create_resource(klass) }
     describe "with valid params" do
       it "updates the requested #{@resource_object}" do
-        klass.any_instance.should_receive(:update).with(valid_attributes)
+        klass.any_instance.should_receive(:update).with(HashWithIndifferentAccess.new(valid_attributes))
         put :update, {:id => @resource_model.to_param, organization_id: organization.to_param, @resource_object => valid_attributes}, valid_session
       end
 

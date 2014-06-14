@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "categories/show" do
   before(:each) do
-    @category = assign(:category, stub_model(Category))
+    @category = assign(:category, FactoryGirl.create(:category))
     @organization = assign(:organization, stub_model(Organization, categories: [@category]))
   end
 

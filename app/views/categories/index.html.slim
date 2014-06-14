@@ -1,3 +1,23 @@
+.panel.panel-primary
+  .panel-heading
+    h3.panel-title New Category
+  .panel-body
+    == render 'form'
+
+.panel-group
+  - @categories.each do |category|
+    .panel.panel-default
+      .panel-heading
+        h4.panel-title.clearfix
+          .pull-left
+            = link_to category.name, [@organization, category]
+          .pull-right
+            a data-toggle="collapse" href="#category-#{category.to_param}"
+              i.fa.fa-chevron-down
+      .panel-collapse.collapse.in*{id: "category-#{category.to_param}"}
+        .panel-body
+          p Variables
+
 .table-responsive
   table.table.table-striped.table-hover
     thead
@@ -8,7 +28,7 @@
 
     tbody
       - @categories.each do |category|
-        tr
+        tr data-toggle="collapse" href="#category-#{category.to_param}"
           td = category.name
           td = category.textkey
           td
@@ -19,5 +39,7 @@
                 = link_to 'Edit', edit_organization_category_path(@organization, category)
               .col-xs-12.col-md-4
                 = link_to 'Destroy', [@organization, category], data: {:confirm => 'Are you sure?'}, :method => :delete
+        tr.collapse.out*{id: "category-#{category.to_param}"}
+          td Variables
 
 = link_to 'New Category', new_organization_category_url(@organization)
